@@ -1,0 +1,36 @@
+/*
+ * SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@use "variables" as *;
+
+.uVisuallyHidden {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	&:not(:focus-within):not(:active) {
+		overflow: hidden;
+		width: 1px;
+		height: 1px;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	&:focus-within,
+	&:active {
+		z-index: 9999;
+		padding: 8px 32px;
+		border: 1px solid $borderPrimary;
+		border-radius: 8px;
+		margin: 5px;
+		background: $bgPrimary;
+	}
+}
+
+.uDisabled {
+	pointer-events: none;
+}

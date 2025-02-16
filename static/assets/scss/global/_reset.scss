@@ -1,0 +1,99 @@
+/*
+ * SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	margin: 0;
+	background: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	list-style: none;
+	text-align: inherit;
+	text-transform: inherit;
+}
+
+*:focus:not(:focus-visible),
+*::before:focus:not(:focus-visible),
+*::after:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Prevent font size inflation. */
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+/* Prevent layout shift when navigating to a page with a scrollbar. */
+html {
+	scrollbar-gutter: stable;
+}
+
+/* Better text rendering. */
+body {
+	-webkit-font-smoothing: antialiased;
+	scrollbar-gutter: stable;
+}
+
+/* Reset styles on `a` elements with classes. */
+a:where([class]),
+a:where([class]:hover),
+a:where([class]:focus),
+a:where([class]:visited) {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Add the correct font size in all browsers. */
+small {
+	font-size: 80%;
+}
+
+img,
+picture,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+	scroll-margin-block: 5ex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		scroll-behavior: auto !important;
+		transition: none !important;
+	}
+}

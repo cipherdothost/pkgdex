@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+
+[[annotations]]
+path = [
+  ".dev/*",
+  ".dev/index/*",
+  ".dev/index/**/*",
+  ".editorconfig",
+  ".github/assets/pkgdex-homepage-screenshot.png",
+  ".github/license-3rdparty.tpl",
+  ".gitignore",
+  ".stylelintrc.json",
+  "LICENSE-3rdparty.csv",
+  "config/apparmor/usr.local.bin.pkgdexctl",
+  "config/config.example.json",
+  "config/nginx/pkg.example.com",
+  "config/systemd/pkgdex.service",
+  "internal/config/testdata/*.json",
+  "internal/testhelper/testdata/*.json",
+  "package-lock.json",
+  "package.json",
+  "static/robots.txt",
+  "static/site.webmanifest"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2025 The Cipher Host Team <team@cipher.host>"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = [
+  "docs/pkgdex.1.scd",
+  "docs/pkgdex.5.scd",
+  "static/assets/img/*",
+  "static/favicon.ico"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2025 The Cipher Host Team <team@cipher.host>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "go.sum"
+precedence = "override"
+SPDX-FileCopyrightText = "2025 The Cipher Host Team <team@cipher.host>"
+SPDX-License-Identifier = "EUPL-1.2"

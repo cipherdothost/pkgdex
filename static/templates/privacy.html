@@ -1,0 +1,90 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy policy • {{.Service.Name}}</title>
+    <meta name="description" content="Our service collects minimal data and never tracks users. Learn how we protect your privacy and maintain GDPR compliance with zero personal data collection.">
+    <link rel="canonical" href="{{.Service.Homepage}}/privacy">
+
+    <meta property="og:locale" content="{{if .Service.SEO.Locale}}{{.Service.SEO.Locale}}{{else}}en_US{{end}}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Privacy policy • {{.Service.Name}}">
+    <meta property="og:description" content="Our service collects minimal data and never tracks users. Learn how we protect your privacy and maintain GDPR compliance with zero personal data collection.">
+    <meta property="og:url" content="{{.Service.Homepage}}/privacy">
+    <meta property="og:site_name" content="{{.Service.Name}}">
+    {{if .Service.SEO.Image}}
+    <meta property="og:image" content="{{.Service.SEO.Image}}">
+    {{if .Service.SEO.ImageAlt}}
+    <meta property="og:image:alt" content="{{.Service.SEO.ImageAlt}}">
+    {{end}}
+    {{end}}
+    {{if .Service.SEO.Publisher}}
+    <meta property="article:publisher" content="{{.Service.SEO.Publisher}}">
+    {{end}}
+
+    <meta name="twitter:title" content="Privacy policy • {{.Service.Name}}">
+    <meta name="twitter:description" content="Our service collects minimal data and never tracks users. Learn how we protect your privacy and maintain GDPR compliance with zero personal data collection.">
+    {{if .Service.SEO.Image}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{.Service.SEO.Image}}">
+    {{end}}
+    {{if .Service.SEO.Twitter}}
+    <meta name="twitter:site" content="{{.Service.SEO.Twitter}}">
+    {{end}}
+
+    <link rel="stylesheet" href="/{{mainStylePath}}" type="text/css" media="all">
+    {{template "favicon" .}}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Service.Name }} RSS Feed" href="/feed.xml">
+  </head>
+
+  <body id="privacy" class="privacy">
+    {{template "skipLink"}}
+
+    {{template "header" .}}
+
+    <main role="main" id="main" class="privacy__main">
+      <header class="pageDescription privacy__description">
+        <h1 class="pageDescription__title">Privacy policy</h1>
+        <p class="pageDescription__text"><strong>Last modified:</strong> <time datetime="2025-02-02">February 2, 2025</time></p>
+      </header>
+
+      <div class="privacy__instructions">
+        <div class="privacy__instructionsSection uRichText">
+          <p class="privacy__instructionsText">This privacy policy explains how we handle your data when you use our service. We believe in minimal data collection and maximum privacy, so we never sell your data and we collect only what is absolutely necessary to provide you with the service.</p>
+          <h2 class="privacy__instructionsTitle">What we collect</h2>
+          <p class="privacy__instructionsText">We collect very little data. The only information we collect is partially anonymized IP addresses for security purposes.</p>
+          <p class="privacy__instructionsText">These IP addresses have their last two segments removed, which makes it almost impossible to identify individual users while still allowing us to protect our service from abuse.</p>
+          <p class="privacy__instructionsText">We do not:</p>
+          <ul>
+            <li>Use cookies.</li>
+            <li>Track your behavior.</li>
+            <li>Use any analytics service.</li>
+            <li>Load resources from external sources.</li>
+            <li>Store any personal information.</li>
+          </ul>
+          <h2 class="privacy__instructionsTitle">How we use the data</h2>
+          <p class="privacy__instructionsText">The truncated IP addresses we collect are used solely for security purposes, such as preventing denial of service attacks and abuse.</p>
+          <p class="privacy__instructionsText">This data is automatically deleted from our servers within 72 hours.</p>
+          <h2 class="privacy__instructionsTitle">Your rights</h2>
+          <p class="privacy__instructionsText">Under the GDPR and other privacy laws, you have certain rights regarding your personal data. However, since we collect virtually no personal information, most of these rights (such as the right to access, correct, or delete your data) don't apply in practice.</p>
+          <h2 class="privacy__instructionsTitle">Changes to this policy</h2>
+          <p class="privacy__instructionsText">If we make any changes to this privacy policy, we'll update the modification date at the top of this document.</p>
+          <p class="privacy__instructionsText">Since we're committed to minimal data collection, any changes would likely be minor and related to security improvements.</p>
+          <h2 class="privacy__instructionsTitle">Questions or concerns</h2>
+          <p class="privacy__instructionsText">If you have any questions about
+          this privacy policy or how we handle data, please contact us at <a href="mailto:{{.Service.Contact}}">{{.Service.Contact}}</a>.</p>
+          <p class="privacy__instructionsText">We take privacy seriously and will try to respond to your inquiry as quickly as possible.</p>
+        </div>
+      </div>
+    </main>
+
+    {{template "footer" .}}
+  </body>
+</html>

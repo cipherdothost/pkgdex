@@ -1,0 +1,25 @@
+{
+  "extends": [
+  	"@wordpress/stylelint-config/scss",
+  	"@wordpress/stylelint-config/scss-stylistic",
+  	"stylelint-config-idiomatic-order"
+  ],
+  "plugins": [
+  	"stylelint-declaration-block-no-ignored-properties",
+  	"stylelint-plugin-defensive-css"
+  ],
+  "rules": {
+    "function-url-quotes": "always",
+  	"no-descending-specificity": null,
+  	"no-duplicate-selectors": null,
+  	"selector-class-pattern": null,
+  	"scss/comment-no-empty": null,
+  	"plugin/declaration-block-no-ignored-properties": true,
+  	"plugin/use-defensive-css": [
+  	  true,
+  	  {
+  	    "severity": "warning"
+  	  }
+  	]
+  }
+}

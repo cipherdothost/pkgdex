@@ -1,0 +1,28 @@
+{
+  "service": {
+    "name": "Example",
+    "contact": "support@example.com",
+    "homepage": "https://example.com",
+    "baseURL": "example.com",
+    "privacyPolicy": "https://example.com/privacy"
+  },
+  "server": {
+    "address": ":8080",
+    "pid": "/var/run/pkgdex.pid",
+    "readTimeout": "5s",
+    "writeTimeout": "10s",
+    "idleTimeout": "30s"
+  },
+  "database": {
+    "path": "/var/lib/pkgdex/pkgdex.db",
+    "journalMode": "WAL"
+  },
+  "packages": [
+    {
+      "description": "Example package",
+      "branch": "trunk",
+      "repository": "https://git.example.com/example.git",
+      "license": "MIT"
+    }
+  ]
+}

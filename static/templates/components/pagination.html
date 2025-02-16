@@ -1,0 +1,73 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+{{define "pagination"}}
+{{if gt .TotalPages 1}}
+<nav class="pagination" role="navigation" aria-label="Pagination">
+  <ul class="pagination__list">
+    <li class="pagination__item">
+      <a href="?page={{sub .CurrentPage 1}}"
+         class="pagination__link mArrow mPrev {{if not .HasPrev}}uDisabled{{end}}"
+         aria-label="Previous page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect width="12" height="12" fill="none"/><path fill="currentColor" d="M7.53 2.22a.75.75 0 0 1 0 1.06L4.81 6l2.72 2.72a.75.75 0 0 1-1.06 1.06L3.22 6.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0"/></svg>
+      </a>
+    </li>
+    
+    {{range .Pages}}
+    <li class="pagination__item">
+      <a href="?page={{.}}"
+         class="pagination__link {{if eq . $.CurrentPage}}mCurrent uDisabled{{end}}"
+         {{if eq . $.CurrentPage}}aria-current="page"{{end}}>
+        {{.}}
+      </a>
+    </li>
+    {{end}}
+
+    <li class="pagination__item">
+      <a href="?page={{add .CurrentPage 1}}"
+         class="pagination__link mArrow mNext {{if not .HasNext}}uDisabled{{end}}"
+         aria-label="Next page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect width="12" height="12" fill="none"/><path fill="currentColor" d="M4.47 2.22a.75.75 0 0 0 0 1.06L7.19 6L4.47 8.72a.75.75 0 0 0 1.06 1.06l3.25-3.25a.75.75 0 0 0 0-1.06L5.53 2.22a.75.75 0 0 0-1.06 0"/></svg>
+      </a>
+    </li>
+  </ul>
+</nav>
+{{end}}
+{{end}}
+
+{{define "search_pagination"}}
+{{if gt .Pagination.TotalPages 1}}
+<nav class="pagination" role="navigation" aria-label="Pagination">
+  <ul class="pagination__list">
+    <li class="pagination__item">
+      <a href="?page={{sub .Pagination.CurrentPage 1}}&q={{.Query}}"
+         class="pagination__link mArrow mPrev {{if not .Pagination.HasPrev}}uDisabled{{end}}"
+         aria-label="Previous page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect width="12" height="12" fill="none"/><path fill="currentColor" d="M7.53 2.22a.75.75 0 0 1 0 1.06L4.81 6l2.72 2.72a.75.75 0 0 1-1.06 1.06L3.22 6.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0"/></svg>
+      </a>
+    </li>
+
+    {{range .Pagination.Pages}}
+    <li class="pagination__item">
+      <a href="?page={{.}}&q={{$.Query}}"
+         class="pagination__link {{if eq . $.Pagination.CurrentPage}}mCurrent uDisabled{{end}}"
+         {{if eq . $.Pagination.CurrentPage}}aria-current="page"{{end}}>
+        {{.}}
+      </a>
+    </li>
+    {{end}}
+
+    <li class="pagination__item">
+      <a href="?page={{add .Pagination.CurrentPage 1}}&q={{.Query}}"
+         class="pagination__link mArrow mNext {{if not .Pagination.HasNext}}uDisabled{{end}}"
+         aria-label="Next page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect width="12" height="12" fill="none"/><path fill="currentColor" d="M4.47 2.22a.75.75 0 0 0 0 1.06L7.19 6L4.47 8.72a.75.75 0 0 0 1.06 1.06l3.25-3.25a.75.75 0 0 0 0-1.06L5.53 2.22a.75.75 0 0 0-1.06 0"/></svg>
+      </a>
+    </li>
+  </ul>
+</nav>
+{{end}}
+{{end}}

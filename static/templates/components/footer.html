@@ -1,0 +1,17 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+{{define "footer"}}
+<footer role="contentinfo" id="footer" class="footer">
+  <a class="footer__link" href="mailto:{{.Service.Contact}}">Contact</a>
+  {{if .Service.PrivacyPolicy}}
+  <a class="footer__link" href="{{.Service.PrivacyPolicy}}" rel="privacy-policy">Privacy policy</a>
+  {{else}}
+  <a class="footer__link" href="/privacy" rel="privacy-policy">Privacy policy</a>
+  {{end}}
+  <a class="footer__link" href="https://github.com/cipherdothost/pkgdex">Source code</a>
+</footer>
+{{end}}

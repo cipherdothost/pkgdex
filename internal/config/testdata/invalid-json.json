@@ -1,0 +1,26 @@
+{
+  "service": {
+    "name": "Example",
+    "homepage": "https://example.com",
+    "contact": "support@example.com",
+    "privacyPolicy": "https://example.com/privacy"
+  },
+  "server": {
+    "address": ":8080",
+    "pid": "/var/run/pkgdex.pid",
+    "readTimeout": "5s",
+    "writeTimeout": "10s",
+    "idleTimeout": "30s"
+  },
+  "database": {
+    "path": "/var/lib/pkgdex/pkgdex.db",
+    "journalMode": "WAL"
+  },
+  "packages": [
+    {
+      "name": "example",
+      "description": "Example package",
+      "repository": "https://git.example.com/example.git",
+      "license": "MIT"
+    }
+  // Missing closing bracket

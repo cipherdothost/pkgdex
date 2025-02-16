@@ -1,0 +1,52 @@
+#include <tunables/global>
+
+profile pkgdex flags=(attach_disconnected) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/ssl_certs>
+
+  # Binary.
+  /usr/local/bin/pkgdexctl mr,
+
+  # Configuration.
+  /etc/pkgdex/** r,
+
+  # Database.
+  /var/lib/pkgdex/ r,
+  /var/lib/pkgdex/** rwk,
+
+  # Runtime files.
+  /run/pkgdex/ r,
+  /run/pkgdex/** rwk,
+  /var/run/pkgdex/ r,
+  /var/run/pkgdex/** rwk,
+
+  # Credentials.
+  /run/credentials/** r,
+
+  # Network.
+  network inet stream,
+  network inet6 stream,
+
+  # System.
+  /sys/kernel/mm/transparent_hugepage/hpage_pmd_size r,
+
+  # Deny everything else.
+  deny @{PROC}/** rw,
+  deny /sys/[^k]*/** wklx,
+  deny /sys/k[^e]*/** wklx,
+  deny /sys/ke[^r]*/** wklx,
+  deny /sys/ker[^n]*/** wklx,
+  deny /sys/kern[^e]*/** wklx,
+  deny /sys/kerne[^l]*/** wklx,
+  deny /sys/kernel/[^d]*/** wklx,
+  deny /sys/kernel/d[^e]*/** wklx,
+  deny /sys/kernel/de[^b]*/** wklx,
+  deny /sys/kernel/deb[^u]*/** wklx,
+  deny /sys/kernel/debu[^g]*/** wklx,
+  deny /sys/kernel/debug/** rwklx,
+  deny mount,
+  deny /proc/sys/kernel/** wklx,
+  deny /proc/sysrq-trigger rwklx,
+  deny ptrace,
+}

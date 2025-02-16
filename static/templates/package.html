@@ -1,0 +1,121 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go package: {{.Name}} • {{.Service.Name}}</title>
+    {{if .Hidden}}
+    <meta name="robots" content="noindex, follow">
+    {{end}}
+    <meta name="description" content="{{.Description}}">
+    <link rel="canonical" href="{{.Service.Homepage}}/{{.Name}}">
+
+    <meta property="og:locale" content="{{if .Service.SEO.Locale}}{{.Service.SEO.Locale}}{{else}}en_US{{end}}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Go package: {{.Name}} • {{.Service.Name}}">
+    <meta property="og:description" content="{{.Description}}">
+    <meta property="og:url" content="{{.Service.Homepage}}/{{.Name}}">
+    <meta property="og:site_name" content="{{.Service.Name}}">
+    {{if .Service.SEO.Image}}
+    <meta property="og:image" content="{{.Service.SEO.Image}}">
+    {{if .Service.SEO.ImageAlt}}
+    <meta property="og:image:alt" content="{{.Service.SEO.ImageAlt}}">
+    {{end}}
+    {{end}}
+    {{if .Service.SEO.Publisher}}
+    <meta property="article:publisher" content="{{.Service.SEO.Publisher}}">
+    {{end}}
+
+    <meta name="twitter:title" content="Go package: {{.Name}} • {{.Service.Name}}">
+    <meta name="twitter:description" content="{{.Description}}">
+    {{if .Service.SEO.Image}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{.Service.SEO.Image}}">
+    {{end}}
+    {{if .Service.SEO.Twitter}}
+    <meta name="twitter:site" content="{{.Service.SEO.Twitter}}">
+    {{end}}
+
+    <link rel="stylesheet" href="/{{mainStylePath}}" type="text/css" media="all">
+    <link rel="stylesheet" href="/{{highlightStylePath}}" type="text/css" media="all">
+    {{template "favicon" .}}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Service.Name }} RSS Feed" href="/feed.xml">
+
+    <meta name="go-import" content="{{.GoImport}}" />
+    <meta name="go-source" content="{{.GoSource}}" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "{{.Name}}",
+        "description": "{{.Description}}",
+        "version": "{{.Version}}",
+        "programmingLanguage": "Go",
+        "codeRepository": "{{.Repository}}",{{if .Usage}} // ugly, but prevents empty lines in the output
+        "codeSampleType": "full",{{else}}
+        "codeSampleType": "inline",{{end}}
+        "license": "{{.License}}",
+        "archivedAt": "https://web.archive.org/web/*/{{.Service.Homepage}}/{{.Name}}",
+      }
+    </script>
+  </head>
+
+  <body id="package" class="package">
+    {{template "skipLink"}}
+
+    {{template "header" .}}
+
+    <main role="main" id="main" class="package__main">
+      <header class="pageDescription package__description">
+        <h1 class="pageDescription__title">{{.Name}}</h1>
+        <p class="pageDescription__text">{{.Description}}</p>
+
+        <div class="packageMeta">
+          <div class="packageMeta__stats">
+            <p class="packageMeta__stat mLicense packageMeta__item"><strong>{{.License}}</strong> License</p>
+          </div>
+
+          <div role="navigation" class="packageMeta__links">
+            <a class="packageMeta__link packageMeta__item" href="{{.Documentation}}" rel="noopener noreferrer alternate help">Documentation</a>
+            <a class="packageMeta__link packageMeta__item" href="{{.Repository}}" rel="noopener noreferrer alternate">Repository</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="package__instructions">
+        <div class="package__instructionsSection uRichText">
+          <h2 class="package__instructionsTitle">Installation</h2>
+          <p class="package__instructionsText">To install <code>{{.Name}}</code> and use it in your project, run:</p>
+          <pre tabindex="0" class="chroma"><code><span class="line"><span class="ln" id="install-line-1"><a style="outline: none; text-decoration:none; color:inherit" href="#install-line-1">1</a></span><span class="cl">go get <span class="s1">&#39;{{.ImportPath}}@v{{.Version}}&#39;</span></span></span></code></pre>
+        </div>
+
+        <div class="package__instructionsSection uRichText">
+          <h2 class="package__instructionsTitle">Usage</h2>
+          <p class="package__instructionsText">To use this package in your code:</p>
+          {{if .Usage}}
+          {{.Usage}}
+          {{else}}
+          <pre tabindex="0" class="chroma"><code><span class="line"><span class="ln" id="usage-line-1"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-1">1</a></span><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="ln" id="usage-line-2"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-2">2</a></span><span class="cl">
+</span></span><span class="line"><span class="ln" id="usage-line-3"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-3">3</a></span><span class="cl"><span class="kn">import</span> <span class="s">&#34;{{.ImportPath}}&#34;</span>
+</span></span><span class="line"><span class="ln" id="usage-line-4"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-4">4</a></span><span class="cl">
+</span></span><span class="line"><span class="ln" id="usage-line-5"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-5">5</a></span><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln" id="usage-line-6"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-6">6</a></span><span class="cl">    <span class="c1">// Do something with the package.
+</span></span></span><span class="line"><span class="ln" id="usage-line-7"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-7">7</a></span><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre>
+          {{end}}
+          <p class="package__instructionsText">For more examples and usage details, please <a href="{{.Documentation}}" rel="noopener noreferrer alternate help">check the Go reference documentation</a>.</p>
+        </div>
+      </div>
+    </main>
+
+    {{template "footer" .}}
+  </body>
+</html>

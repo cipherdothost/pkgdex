@@ -1,0 +1,48 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found • {{.Service.Name}}</title>
+    <meta name="robots" content="noindex, follow">
+
+    <meta property="og:locale" content="{{if .Service.SEO.Locale}}{{.Service.SEO.Locale}}{{else}}en_US{{end}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Page not found • {{.Service.Name}}">
+    <meta property="og:site_name" content="{{.Service.Name}}">
+    {{if .Service.SEO.Image}}
+    <meta property="og:image" content="{{.Service.SEO.Image}}">
+    {{if .Service.SEO.ImageAlt}}
+    <meta property="og:image:alt" content="{{.Service.SEO.ImageAlt}}">
+    {{end}}
+    {{end}}
+    {{if .Service.SEO.Publisher}}
+    <meta property="article:publisher" content="{{.Service.SEO.Publisher}}">
+    {{end}}
+
+    <link rel="stylesheet" href="/{{mainStylePath}}" type="text/css" media="all">
+    {{template "favicon" .}}
+  </head>
+
+  <body id="notFound" class="notFound">
+    {{template "skipLink"}}
+
+    {{template "header" .}}
+
+    <main role="main" id="main" class="notFound__main">
+      <h1 class="notFound__title">404 <span>Not Found</span></h1>
+      <div class="notFound__help">
+        <p class="notFound__text">The package or page <code>{{.Path}}</code> could not be found.</p>
+        <a class="notFound__link" href="/">Return to homepage</a>
+      </div>
+    </main>
+
+    {{template "footer" .}}
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+{{define "header"}}
+<header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="{{.Service.Homepage}}">{{template "logo" .}}</a>
+    {{template "searchForm" .}}
+  </div>
+</header>
+{{end}}

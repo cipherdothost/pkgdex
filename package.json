@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@wordpress/stylelint-config": "^23.10.0",
+    "sass": "^1.83.0",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+    "stylelint-plugin-defensive-css": "^1.0.4"
+  }
+}

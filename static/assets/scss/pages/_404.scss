@@ -1,0 +1,48 @@
+/*
+ * SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@use "../global";
+@use "../global/variables" as *;
+
+.notFound {
+	display: flex;
+	min-height: 100dvh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__main {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-size: 8rem;
+
+		span {
+			font-size: 2rem;
+		}
+	}
+
+	&__help {
+		font-size: 1.125rem;
+		text-align: center;
+		vertical-align: center;
+	}
+
+	&__link {
+
+		@extend %link;
+		display: block;
+		margin-top: 1rem;
+	}
+}

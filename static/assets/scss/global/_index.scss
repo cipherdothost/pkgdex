@@ -1,0 +1,314 @@
+/*
+ * SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@use "reset";
+@use "breakpoints" as *;
+@use "variables" as *;
+@use "utility";
+@use "text";
+
+::selection {
+	background: $fgPrimary;
+	color: $bgPrimary;
+}
+
+body {
+	// Dotted background based on https://codepen.io/edmundojr/pen/xOYJGw.
+	$background: #fff;
+	$dotColor: $borderPrimary;
+	$dotSize: 1px;
+	$spacing: 5px;
+	--backgroundColor:
+		#{linear-gradient(
+			90deg,
+			$background calc($spacing - $dotSize),
+			transparent 1%
+		)
+		center / $spacing $spacing,
+		linear-gradient($background calc($spacing - $dotSize), transparent 1%)
+		center / $spacing $spacing,
+		$dotColor};
+	background: var(--backgroundColor);
+}
+
+body > * {
+	max-width: $layoutWidth;
+	margin-inline: auto;
+	padding-inline: $layoutPadding;
+}
+
+main {
+	padding: $layoutPadding;
+}
+
+.logo {
+	display: flex;
+	width: 2rem;
+	align-items: center;
+	justify-content: center;
+	fill: currentcolor;
+}
+
+.header {
+	display: flex;
+	width: 100%;
+	max-width: none;
+	justify-content: center;
+	border-bottom: 1px solid $borderSecondary;
+	background: $bgPrimary;
+	padding-block: 12px;
+
+	&__inner {
+		display: flex;
+		width: 100%;
+		max-width: $layoutWidth;
+		align-items: center;
+		gap: 16px;
+		padding-inline: $layoutPadding;
+	}
+
+	&__logo {
+		position: relative;
+		display: block;
+		color: $fgPrimary;
+
+		&::after {
+			position: absolute;
+			z-index: -1;
+			top: -0.25rem;
+			left: -0.25rem;
+			display: block;
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 0.25rem;
+			background: $bgTertiary;
+			content: "";
+			opacity: 0;
+			transition: all 0.25s ease;
+		}
+
+		&:hover::after {
+			opacity: 1;
+		}
+	}
+
+	&__currentPath {
+		display: block;
+		color: $fgTertiary;
+		font-size: 0.75rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		line-height: 1;
+		text-transform: uppercase;
+		user-select: none;
+	}
+
+	$searchIconWidth: 1.125em;
+	$searchButtonPadding: 0.75em;
+
+	&__search {
+		position: relative;
+		flex: 1;
+	}
+
+	&__searchInput {
+		width: 100%;
+		padding: 0.25em 1em;
+		padding-left: #{($searchIconWidth + $searchButtonPadding * 2) - 0.5em};
+		border: 1px solid $borderPrimary;
+		border-radius: 99em;
+		background: $borderSecondary;
+		transition: border-color 0.25s ease;
+
+		&:hover {
+			border-color: $fgTertiary;
+		}
+	}
+
+	&__searchButton {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		color: $fgTertiary;
+		padding-inline: $searchButtonPadding;
+
+		&:hover {
+			color: $fgPrimary;
+			cursor: pointer;
+		}
+	}
+
+	&__searchIcon {
+		width: $searchIconWidth;
+	}
+}
+
+.footer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	padding-block: 1rem;
+
+	&__link {
+
+		@extend %link;
+	}
+}
+
+.pageDescription {
+	padding-left: 16px;
+	border-radius: 8px;
+	border-left: 12px solid $fgPrimary;
+	margin-bottom: $layoutPadding;
+	padding-block: 6px;
+
+	&__title {
+
+		@extend %h1;
+	}
+
+	&__text {
+		color: $fgPrimary;
+		font-size: 1.125rem;
+
+		&:not(:last-child) {
+			margin-bottom: #{calc($layoutPadding / 2)};
+		}
+	}
+}
+
+.packageMeta {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	&__item {
+		display: flex;
+		align-items: center;
+
+		&::before {
+			display: block;
+			width: 1.25em;
+			height: 1.25em;
+			margin-right: 0.25em;
+			background: currentcolor;
+			content: "";
+			mask-image: var(--_icon);
+			mask-repeat: no-repeat;
+			mask-size: 100% 100%;
+		}
+	}
+
+	&__stats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+	}
+
+	&__stat {
+
+		strong {
+			margin-right: 0.2em;
+		}
+
+		&.mLicense {
+			--_icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M3 3.75A.75.75 0 0 1 3.75 3h16.5a.75.75 0 0 1 0 1.5h-1.042l2.737 6.717A.8.8 0 0 1 22 11.5a3.5 3.5 0 1 1-7 0a.8.8 0 0 1 .055-.283L17.792 4.5H12.75v12h4a2.25 2.25 0 0 1 0 4.5H7.253a2.25 2.25 0 0 1 0-4.5h3.997v-12H6.208l2.737 6.717A.8.8 0 0 1 9 11.5a3.5 3.5 0 1 1-7 0a.8.8 0 0 1 .055-.283L4.792 4.5H3.75A.75.75 0 0 1 3 3.75m3.503 15c0 .414.336.75.75.75h9.497a.75.75 0 0 0 0-1.5H7.253a.75.75 0 0 0-.75.75m.852-6.5h-3.71a2 2 0 0 0 3.71 0m-.22-1.5L5.5 6.738L3.865 10.75zM18.5 13.5a2 2 0 0 0 1.855-1.25h-3.71A2 2 0 0 0 18.5 13.5m-1.635-2.75h3.27L18.5 6.738z'/%3E%3C/svg%3E");
+		}
+
+		&::before {
+			margin-right: 0.4em;
+		}
+	}
+
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+
+		@include media("<tablet") {
+			column-gap: 1em;
+		}
+	}
+
+	&__link {
+		position: relative;
+		padding: 0.5em;
+		border: 1px solid transparent;
+		border-radius: 8px;
+		text-decoration: underline;
+		--_icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M9.75 4h.516A3.74 3.74 0 0 1 14 7.75c0 2.003-1.565 3.641-3.53 3.745l-.197.005l-.516.005a.75.75 0 0 1-.115-1.493l.101-.007l.523-.005A2.24 2.24 0 0 0 12.5 7.75c0-1.192-.92-2.166-2.081-2.245l-.153-.005H9.75a.75.75 0 0 1-.102-1.493zh.516zM5.752 4h.498a.75.75 0 0 1 .102 1.493L6.25 5.5h-.498a2.252 2.252 0 0 0-.154 4.5l.154.005h.498a.75.75 0 0 1 .102 1.493l-.102.007h-.498a3.752 3.752 0 0 1-.199-7.5zh.497zM5.75 7h4.5a.75.75 0 0 1 .102 1.493l-.102.007h-4.5a.75.75 0 0 1-.102-1.493zh4.5z'/%3E%3C/svg%3E");
+		transition: border-color 0.12s, background-color 0.12s, color 0.12s;
+
+		@include media("<tablet") {
+			padding-inline: 0;
+		}
+
+		@include media(">tablet") {
+
+			&:hover {
+				border-color: $borderPrimary;
+				background: $bgSecondary;
+				color: $fgPrimary;
+			}
+		}
+	}
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	padding-block: 1rem;
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem;
+	}
+
+	&__link {
+		display: flex;
+		width: 2.25rem;
+		height: 2.25rem;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid $borderPrimary;
+		border-radius: 0.5rem;
+		background: $bgPrimary;
+		font-size: 1rem;
+		transition: all 0.15s;
+
+		&:hover {
+			background: $borderSecondary;
+		}
+
+		&.mCurrent {
+			border-color: transparent;
+			background: $bgTertiary;
+			font-weight: 700;
+		}
+
+		&.mArrow {
+			width: 3.375rem;
+		}
+
+		&.mArrow.uDisabled {
+			visibility: hidden;
+		}
+
+		&.mPrev {
+			margin-right: 0.25em;
+		}
+
+		&.mNext {
+			margin-left: 0.25rem;
+		}
+
+		svg {
+			width: 1.25rem;
+		}
+	}
+}

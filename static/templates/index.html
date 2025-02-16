@@ -1,0 +1,102 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{if .Service.SEO.Title}}{{.Service.SEO.Title}}{{else}}Go package index{{end}} • {{.Service.Name}}</title>
+    <meta name="description" content="{{if .Service.SEO.Description}}{{.Service.SEO.Description}}{{else}}{{.Service.Description}}{{end}}">
+    <link rel="canonical" href="{{.Service.Homepage}}">
+
+    <meta property="og:locale" content="{{if .Service.SEO.Locale}}{{.Service.SEO.Locale}}{{else}}en_US{{end}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{if .Service.SEO.Title}}{{.Service.SEO.Title}}{{else}}Go package index{{end}} • {{.Service.Name}}">
+    <meta property="og:description" content="{{if .Service.SEO.Description}}{{.Service.SEO.Description}}{{else}}{{.Service.Description}}{{end}}">
+    <meta property="og:url" content="{{.Service.Homepage}}">
+    <meta property="og:site_name" content="{{.Service.Name}}">
+    {{if .Service.SEO.Image}}
+    <meta property="og:image" content="{{.Service.SEO.Image}}">
+    {{if .Service.SEO.ImageAlt}}
+    <meta property="og:image:alt" content="{{.Service.SEO.ImageAlt}}">
+    {{end}}
+    {{end}}
+    {{if .Service.SEO.Publisher}}
+    <meta property="article:publisher" content="{{.Service.SEO.Publisher}}">
+    {{end}}
+
+    <meta name="twitter:title" content="{{if .Service.SEO.Title}}{{.Service.SEO.Title}}{{else}}Go package index{{end}} • {{.Service.Name}}">
+    <meta name="twitter:description" content="{{if .Service.SEO.Description}}{{.Service.SEO.Description}}{{else}}{{.Service.Description}}{{end}}">
+    {{if .Service.SEO.Image}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{.Service.SEO.Image}}">
+    {{end}}
+    {{if .Service.SEO.Twitter}}
+    <meta name="twitter:site" content="{{.Service.SEO.Twitter}}">
+    {{end}}
+
+    <link rel="stylesheet" href="/{{mainStylePath}}" type="text/css" media="all">
+    {{template "favicon" .}}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Service.Name }} RSS Feed" href="/feed.xml">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{.Service.Name}}",
+        "description": "{{.Service.Description}}",
+        "url": "{{.Service.Homepage}}",
+        "archivedAt": "https://web.archive.org/web/*/{{.Service.Homepage}}",
+      }
+    </script>
+  </head>
+
+  <body id="index" class="index">
+    {{template "skipLink"}}
+
+    {{template "header" .}}
+
+    <main role="main" id="main" class="index__main">
+      <header class="pageDescription index__description">
+        <h1 class="pageDescription__title index__descriptionTitle">{{.Service.Name}}</h1>
+        <p class="pageDescription__text">
+          {{.Service.Description}}
+        </p>
+      </header>
+
+      <ul class="index__packages">
+        {{range .Packages}}
+        <li class="packageCard__wrapper">
+          <article class="packageCard" aria-label="{{.Name}}">
+            <h2 class="packageCard__title">
+              <a class="packageCard__titleLink" href="/{{.Name}}" rel="bookmark">{{.Name}}</a>
+            </h2>
+            <p class="packageCard__description">{{.Description}}</p>
+
+            <footer class="packageMeta">
+              <div class="packageMeta__stats">
+                <p class="packageMeta__stat mLicense packageMeta__item"><strong>{{.License}}</strong> License</p>
+              </div>
+
+              <div role="navigation" class="packageMeta__links">
+                <a class="packageMeta__link packageMeta__item" href="{{.Documentation}}" rel="noopener noreferrer alternate help">
+                  Documentation
+                </a>
+                <a class="packageMeta__link packageMeta__item" href="{{.Repository}}" rel="noopener noreferrer alternate"> Repository </a>
+              </div>
+            </footer>
+          </article>
+        </li>
+        {{end}}
+      </ul>
+
+      {{template "pagination" .Pagination}}
+    </main>
+
+    {{template "footer" .}}
+  </body>
+</html>

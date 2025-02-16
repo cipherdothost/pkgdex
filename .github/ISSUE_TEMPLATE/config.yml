@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+blank_issues_enabled: false
+contact_links:
+  - name: 'Security issue'
+    url: 'https://github.com/cipherdothost/.github/blob/trunk/SECURITY.md'
+    about: 'Please report security vulnerabilities directly to our team via email.'

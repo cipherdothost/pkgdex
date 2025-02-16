@@ -1,0 +1,43 @@
+[Unit]
+Description=A package index for Go packages
+Documentation=https://github.com/cipherdothost/pkgdex
+After=network.target network-online.target
+Requires=network-online.target
+
+[Service]
+Type=simple
+User=pkgdex
+Group=pkgdex
+
+ExecStart=/usr/local/bin/pkgdexctl --config /etc/pkgdex/config.json --start
+ExecStop=/usr/local/bin/pkgdexctl --config /etc/pkgdex/config.json --stop
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+LoadCredentialEncrypted=pkgdex-key:/etc/pkgdex/credentials/pkgdex-key
+LoadCredentialEncrypted=pkgdex-tlscertificate:/etc/pkgdex/credentials/pkgdex-tlscertificate
+LoadCredentialEncrypted=pkgdex-tlskey:/etc/pkgdex/credentials/pkgdex-tlskey
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+MemoryDenyWriteExecute=true
+LockPersonality=true
+ReadWritePaths=/var/lib/pkgdex /run/pkgdex /var/run/pkgdex
+ReadOnlyPaths=/etc/pkgdex
+AppArmorProfile=pkgdex
+
+[Install]
+WantedBy=multi-user.target

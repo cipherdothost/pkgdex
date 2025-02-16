@@ -1,0 +1,83 @@
+/*
+ * SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@use "variables" as *;
+
+html {
+	color: $fgSecondary;
+	font-family: system-ui, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	margin-bottom: 0.25em;
+	color: $fgPrimary;
+	line-height: 1.1;
+	text-wrap: balance;
+}
+
+.uRichText {
+	max-width: 65ch;
+	line-height: 1.5;
+	text-wrap: pretty;
+
+	:where(p),
+	:where(img),
+	:where(picture) {
+		margin-bottom: 1em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+code {
+	display: inline-block;
+	overflow: auto;
+	max-width: 100%;
+	padding: 0.15em 0.5em;
+	border-radius: 6px;
+	background: $bgTertiary;
+	color: inherit;
+	font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+	font-size: 85%;
+	vertical-align: middle;
+}
+
+a:where(:not([class])),
+%link {
+	color: $fgSecondary;
+	text-decoration: underline;
+
+	&:hover {
+		color: $fgPrimary;
+	}
+}
+
+%h1 {
+	font-size: 2rem;
+}
+
+%h2 {
+	font-size: 1.5rem;
+}
+
+%h3 {
+	font-size: 1.25rem;
+}

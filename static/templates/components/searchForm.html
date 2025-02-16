@@ -1,0 +1,21 @@
+<!--
+SPDX-FileCopyrightText: 2025 The Cipher Host Team <team@cipher.host>
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+{{define "searchForm"}}
+<form class="header__search" action="/search" method="GET" role="search">
+  <input
+    type="search"
+    name="q"
+    placeholder="Search packages..."
+    aria-label="Search packages"
+    class="header__searchInput"
+  >
+  <button class="header__searchButton" type="submit" title="Search">
+    <svg class="header__searchIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><rect width="20" height="20" fill="none"/><path fill="currentColor" d="M8.5 3a5.5 5.5 0 0 1 4.383 8.823l4.147 4.147a.75.75 0 0 1-.976 1.133l-.084-.073l-4.147-4.147A5.5 5.5 0 1 1 8.5 3m0 1.5a4 4 0 1 0 0 8a4 4 0 0 0 0-8"/></svg>
+    <span class="uVisuallyHidden">Search</span>
+  </button>
+</form>
+{{end}}
