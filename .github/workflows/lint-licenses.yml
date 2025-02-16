@@ -33,4 +33,4 @@ jobs:
         run: 'pipx install reuse'
 
       - name: 'Run REUSE'
-        run: 'make lint-licenses'
+        run: 'make lint/licenses'

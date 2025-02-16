@@ -53,4 +53,4 @@ jobs:
         run: 'make lint'
 
       - name: 'Run stylelint'
-        run: 'npm install && make lint-styles'
+        run: 'npm install && make lint/styles'
