@@ -44,18 +44,13 @@ git clone 'https://github.com/YOUR-USERNAME/pkgdex.git'
 cd 'pkgdex'
 ```
 
-3. Set up the upstream remote:
-```bash
-git remote add upstream 'https://github.com/cipherdothost/pkgdex.git'
-```
-
-4. Create a development configuration file:
+3. Create a development configuration file:
 ```bash
 mkdir -p '.dev'
 cp 'config/dev-config.example.json' '.dev/config.json'
 ```
 
-5. Edit the `.dev/config.json` file to set appropriate development
+4. Edit the `.dev/config.json` file to set appropriate development
    values. You'll want to edit the following fields:
 
    - `server.pid`
