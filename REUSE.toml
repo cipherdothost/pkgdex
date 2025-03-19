@@ -17,6 +17,7 @@ path = [
   "LICENSE-3rdparty.csv",
   "config/apparmor/usr.local.bin.pkgdexctl",
   "config/config.example.json",
+  "config/dev-config.example.json",
   "config/nginx/pkg.example.com",
   "config/systemd/pkgdex.service",
   "internal/config/testdata/*.json",
