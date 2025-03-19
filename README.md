@@ -56,7 +56,8 @@ sudo make install
 ## Contributing
 
 Anyone can help make **pkgdex** better. Check out [the contribution
-guidelines](CONTRIBUTING.md) for more information.
+guidelines](CONTRIBUTING.md) and [the development
+instructions](docs/development.md) for more information.
 
 ---
 
