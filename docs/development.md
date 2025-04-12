@@ -18,12 +18,11 @@ contribution guidelines and our code of conduct.
 ## Table of Contents
 
 1. [Development environment](#development-environment-setup)
-2. [Project Structure](#project-structure)
-3. [Building and Testing](#building-and-testing)
-4. [Contribution Workflow](#contribution-workflow)
-5. [Coding Standards](#coding-standards)
-6. [Documentation](#documentation)
-7. [License Compliance](#license-compliance)
+2. [Building and Testing](#building-and-testing)
+3. [Contribution Workflow](#contribution-workflow)
+4. [Coding Standards](#coding-standards)
+5. [Documentation](#documentation)
+6. [License Compliance](#license-compliance)
 
 ## Development Environment
 
@@ -71,12 +70,6 @@ certificate for local development:
 ```bash
 openssl req -x509 -newkey rsa:4096 -keyout '.dev/pkgdex-tlskey' -out '.dev/pkgdex-tlscertificate' -days 365 -nodes -subj '/CN=localhost'
 ```
-
-## Project Structure
-
-The **pkgdex** project follows a typical Go project layout, but the
-project's structure and architecture are described in the
-[architecture.md](architecture.md) file.
 
 ## Building and Testing
 
