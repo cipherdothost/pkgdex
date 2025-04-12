@@ -98,8 +98,13 @@ make development
 ```
 
 By default, this will start the service on `https://localhost:8080`, but
-you can change this in the `.dev/config.json` file. You'll need to
-accept the self-signed certificate warning.
+you can change this in the `.dev/config.json` file by modifying the
+`server.address` field.  You'll need to accept the self-signed
+certificate warning.
+
+> [!NOTE]
+> If you modify the server address, you may also want to modify the
+> `service.homepage` and `service.baseURL` fields.
 
 ### Running tests
 
