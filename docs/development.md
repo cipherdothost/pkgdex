@@ -78,6 +78,7 @@ openssl req -x509 -newkey rsa:4096 -keyout '.dev/pkgdex-tlskey' -out '.dev/pkgde
 To build the project locally, run:
 
 ```bash
+npm install
 make
 ```
 
