@@ -195,6 +195,7 @@ main {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	font-size: 1rem;
 
 	&__item {
 		display: flex;
@@ -220,7 +221,6 @@ main {
 	}
 
 	&__stat {
-
 		strong {
 			margin-right: 0.2em;
 		}
@@ -237,15 +237,13 @@ main {
 	&__links {
 		display: flex;
 		flex-wrap: wrap;
-
-		@include media("<tablet") {
-			column-gap: 1em;
-		}
+		gap: 0 1em;
 	}
 
 	&__link {
 		position: relative;
 		padding: 0.5em;
+		margin: -0.5em;
 		border: 1px solid transparent;
 		border-radius: 8px;
 		text-decoration: underline;
@@ -253,11 +251,11 @@ main {
 		transition: border-color 0.12s, background-color 0.12s, color 0.12s;
 
 		@include media("<tablet") {
-			padding-inline: 0;
+			padding: 0;
+			margin: 0;
 		}
 
 		@include media(">tablet") {
-
 			&:hover {
 				border-color: $borderPrimary;
 				background: $bgSecondary;
