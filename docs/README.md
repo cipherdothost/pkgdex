@@ -12,3 +12,5 @@ SPDX-License-Identifier: CC0-1.0
   **pkgdex** yourself.
 - [Using the service](using.md): How to use the service once it is up
   and running.
+- [Developing the service](development.md): How to develop and
+  contribute code to **pkgdex**.

@@ -34,6 +34,7 @@ First install the dependencies:
 
 - Go 1.24 or above.
 - make.
+- npm.
 - [scdoc](https://git.sr.ht/~sircmpwn/scdoc).
 
 Clone the repository, switch to the latest stable tag, then compile, and
@@ -43,6 +44,7 @@ install:
 git clone 'https://github.com/cipherdothost/pkgdex.git'
 cd 'pkgdex'
 git checkout 'v1.0.0'
+npm install
 make
 sudo make install
 ```
@@ -56,7 +58,8 @@ sudo make install
 ## Contributing
 
 Anyone can help make **pkgdex** better. Check out [the contribution
-guidelines](CONTRIBUTING.md) for more information.
+guidelines](CONTRIBUTING.md) and [the development
+instructions](docs/development.md) for more information.
 
 ---
 

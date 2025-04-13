@@ -1,0 +1,61 @@
+{
+  "service": {
+    "name": "Pkgdex",
+    "description": "A curated index of Go packages. Engineered by Cipher Host.",
+    "contact": "support@example.com",
+    "homepage": "https://localhost:8080",
+    "baseURL": "localhost:8080",
+    "packagesPerPage": 2,
+    "seo": {
+      "title": "Cipher Host's Go Package Index",
+      "description": "A curated collection of professional-grade tools to enhance your Go projects. Browse and discover Cipher Host's carefully engineered Go packages and modules."
+    }
+  },
+  "server": {
+    "address": ":8080",
+    "pid": "/path/to/pkgdex/repository/clone/.dev/pkgdex.pid",
+    "readTimeout": "5s",
+    "writeTimeout": "10s",
+    "idleTimeout": "30s"
+  },
+  "database": {
+    "path": "/path/to/pkgdex/repository/clone/.dev/pkgdex.db",
+    "indexPath": "/path/to/pkgdex/repository/clone/.dev/index"
+  },
+  "packages": [
+    {
+      "name": "credential-go",
+      "description": "A simple interface for retrieving secrets from systemd's credential management system.",
+      "version": "1.0.0",
+      "branch": "trunk",
+      "repository": "https://git.sr.ht/~jamesponddotco/credential-go",
+      "license": "MIT",
+      "usage": "<pre tabindex=\"0\" class=\"chroma\"><code><span class=\"line\"><span class=\"ln\" id=\"usage-line-1\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-1\"> 1</a></span><span class=\"cl\"><span class=\"kn\">package</span> <span class=\"nx\">main</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-2\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-2\"> 2</a></span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-3\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-3\"> 3</a></span><span class=\"cl\"><span class=\"kn\">import</span> <span class=\"p\">(</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-4\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-4\"> 4</a></span><span class=\"cl\">\t<span class=\"s\">&#34;fmt&#34;</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-5\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-5\"> 5</a></span><span class=\"cl\">\t<span class=\"s\">&#34;log&#34;</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-6\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-6\"> 6</a></span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-7\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-7\"> 7</a></span><span class=\"cl\">\t<span class=\"s\">&#34;git.sr.ht/~jamesponddotco/credential-go&#34;</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-8\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-8\"> 8</a></span><span class=\"cl\"><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-9\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-9\"> 9</a></span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-10\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-10\">10</a></span><span class=\"cl\"><span class=\"kd\">func</span> <span class=\"nf\">main</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-11\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-11\">11</a></span><span class=\"cl\">\t<span class=\"c1\">// Open the credential store with your application&#39;s name as the prefix.\n</span></span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-12\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-12\">12</a></span><span class=\"cl\"><span class=\"c1\"></span>\t<span class=\"nx\">store</span><span class=\"p\">,</span> <span class=\"nx\">err</span> <span class=\"o\">:=</span> <span class=\"nx\">credential</span><span class=\"p\">.</span><span class=\"nf\">Open</span><span class=\"p\">(</span><span class=\"s\">&#34;myapp&#34;</span><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-13\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-13\">13</a></span><span class=\"cl\">\t<span class=\"k\">if</span> <span class=\"nx\">err</span> <span class=\"o\">!=</span> <span class=\"kc\">nil</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-14\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-14\">14</a></span><span class=\"cl\">\t\t<span class=\"nx\">log</span><span class=\"p\">.</span><span class=\"nf\">Fatal</span><span class=\"p\">(</span><span class=\"nx\">err</span><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-15\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-15\">15</a></span><span class=\"cl\">\t<span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-16\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-16\">16</a></span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-17\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-17\">17</a></span><span class=\"cl\">\t<span class=\"c1\">// Retrieve a secret from the store.\n</span></span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-18\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-18\">18</a></span><span class=\"cl\"><span class=\"c1\"></span>\t<span class=\"nx\">secret</span><span class=\"p\">,</span> <span class=\"nx\">err</span> <span class=\"o\">:=</span> <span class=\"nx\">store</span><span class=\"p\">.</span><span class=\"nf\">Get</span><span class=\"p\">(</span><span class=\"s\">&#34;database-password&#34;</span><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-19\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-19\">19</a></span><span class=\"cl\">\t<span class=\"k\">if</span> <span class=\"nx\">err</span> <span class=\"o\">!=</span> <span class=\"kc\">nil</span> <span class=\"p\">{</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-20\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-20\">20</a></span><span class=\"cl\">\t\t<span class=\"nx\">log</span><span class=\"p\">.</span><span class=\"nf\">Fatal</span><span class=\"p\">(</span><span class=\"nx\">err</span><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-21\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-21\">21</a></span><span class=\"cl\">\t<span class=\"p\">}</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-22\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-22\">22</a></span><span class=\"cl\">\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-23\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-23\">23</a></span><span class=\"cl\">\t<span class=\"c1\">// Print the secret or do something else with it.\n</span></span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-24\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-24\">24</a></span><span class=\"cl\"><span class=\"c1\"></span>\t<span class=\"nx\">fmt</span><span class=\"p\">.</span><span class=\"nf\">Println</span><span class=\"p\">(</span><span class=\"s\">&#34;Database password:&#34;</span><span class=\"p\">,</span> <span class=\"nx\">secret</span><span class=\"p\">)</span>\n</span></span><span class=\"line\"><span class=\"ln\" id=\"usage-line-25\"><a style=\"outline: none; text-decoration:none;color:inherit\" href=\"#usage-line-25\">25</a></span><span class=\"cl\"><span class=\"p\">}</span>\n</span></span></code></pre>"
+    },
+    {
+      "name": "xstd-go",
+      "description": "Small collection of extensions to Go's standard library.",
+      "version": "0.12.1",
+      "branch": "trunk",
+      "repository": "https://git.sr.ht/~jamesponddotco/xstd-go",
+      "license": "MIT"
+    },
+    {
+      "name": "gitignore-go",
+      "description": "Simple Go parser for .gitignore files.",
+      "version": "1.0.1",
+      "branch": "trunk",
+      "repository": "https://git.sr.ht/~jamesponddotco/gitignore-go",
+      "license": "MIT"
+    },
+    {
+      "name": "llmctx",
+      "description": "CLI tool that converts the content of a directory into context for LLMs.",
+      "version": "1.0.1",
+      "branch": "trunk",
+      "repository": "https://git.sr.ht/~jamesponddotco/llmctx",
+      "license": "GPL-2.0",
+      "hidden": true
+    }
+  ]
+}

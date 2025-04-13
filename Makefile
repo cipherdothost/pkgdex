@@ -23,11 +23,12 @@ GIT       ?= git
 REUSE     ?= reuse
 RM        ?= rm
 INSTALL   ?= install
+NPM       ?= npm
 SASS      ?= ./node_modules/.bin/sass
 STYLELINT ?= ./node_modules/.bin/stylelint
 SCDOC     ?= scdoc
 
-REQUIRED_TOOLS := $(GO) $(GIT) $(SASS) $(SCDOC)
+REQUIRED_TOOLS := $(GO) $(GIT) $(SASS) $(SCDOC) $(NPM)
 GO_MIN_VERSION := 1.24
 
 GOBUILD_FLAGS := -trimpath \
