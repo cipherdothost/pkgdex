@@ -57,22 +57,25 @@ main {
 	width: 100%;
 	max-width: none;
 	justify-content: center;
+	padding: 0;
 	border-bottom: 1px solid $borderSecondary;
 	background: $bgPrimary;
-	padding-block: 12px;
+	padding-block: 0.75rem;
 
 	&__inner {
 		display: flex;
 		width: 100%;
 		max-width: $layoutWidth;
 		align-items: center;
-		gap: 16px;
+		gap: 1rem;
 		padding-inline: $layoutPadding;
 	}
 
 	&__logo {
 		position: relative;
+		z-index: 1;
 		display: block;
+		aspect-ratio: 1/1;
 		color: $fgPrimary;
 
 		&::after {
@@ -221,6 +224,7 @@ main {
 	}
 
 	&__stat {
+
 		strong {
 			margin-right: 0.2em;
 		}
@@ -243,12 +247,12 @@ main {
 	&__link {
 		position: relative;
 		padding: 0.5em;
-		margin: -0.5em;
 		border: 1px solid transparent;
 		border-radius: 8px;
+		margin: -0.5em;
 		text-decoration: underline;
-		--_icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M9.75 4h.516A3.74 3.74 0 0 1 14 7.75c0 2.003-1.565 3.641-3.53 3.745l-.197.005l-.516.005a.75.75 0 0 1-.115-1.493l.101-.007l.523-.005A2.24 2.24 0 0 0 12.5 7.75c0-1.192-.92-2.166-2.081-2.245l-.153-.005H9.75a.75.75 0 0 1-.102-1.493zh.516zM5.752 4h.498a.75.75 0 0 1 .102 1.493L6.25 5.5h-.498a2.252 2.252 0 0 0-.154 4.5l.154.005h.498a.75.75 0 0 1 .102 1.493l-.102.007h-.498a3.752 3.752 0 0 1-.199-7.5zh.497zM5.75 7h4.5a.75.75 0 0 1 .102 1.493l-.102.007h-4.5a.75.75 0 0 1-.102-1.493zh4.5z'/%3E%3C/svg%3E");
 		transition: border-color 0.12s, background-color 0.12s, color 0.12s;
+		--_icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M9.75 4h.516A3.74 3.74 0 0 1 14 7.75c0 2.003-1.565 3.641-3.53 3.745l-.197.005l-.516.005a.75.75 0 0 1-.115-1.493l.101-.007l.523-.005A2.24 2.24 0 0 0 12.5 7.75c0-1.192-.92-2.166-2.081-2.245l-.153-.005H9.75a.75.75 0 0 1-.102-1.493zh.516zM5.752 4h.498a.75.75 0 0 1 .102 1.493L6.25 5.5h-.498a2.252 2.252 0 0 0-.154 4.5l.154.005h.498a.75.75 0 0 1 .102 1.493l-.102.007h-.498a3.752 3.752 0 0 1-.199-7.5zh.497zM5.75 7h4.5a.75.75 0 0 1 .102 1.493l-.102.007h-4.5a.75.75 0 0 1-.102-1.493zh4.5z'/%3E%3C/svg%3E");
 
 		@include media("<tablet") {
 			padding: 0;
@@ -256,6 +260,7 @@ main {
 		}
 
 		@include media(">tablet") {
+
 			&:hover {
 				border-color: $borderPrimary;
 				background: $bgSecondary;
