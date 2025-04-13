@@ -73,7 +73,7 @@ SPDX-License-Identifier: EUPL-1.2
     {{template "header" .}}
 
     <main role="main" id="main" class="package__main">
-      <header class="pageDescription package__description">
+      <header class="pageDescription mCard package__description">
         <h1 class="pageDescription__title">{{.Name}}</h1>
         <p class="pageDescription__text">{{.Description}}</p>
 
@@ -89,20 +89,17 @@ SPDX-License-Identifier: EUPL-1.2
         </div>
       </header>
 
-      <div class="package__instructions">
-        <div class="package__instructionsSection uRichText">
-          <h2 class="package__instructionsTitle">Installation</h2>
-          <p class="package__instructionsText">To install <code>{{.Name}}</code> and use it in your project, run:</p>
-          <pre tabindex="0" class="chroma"><code><span class="line"><span class="ln" id="install-line-1"><a style="outline: none; text-decoration:none; color:inherit" href="#install-line-1">1</a></span><span class="cl">go get <span class="s1">&#39;{{.ImportPath}}@v{{.Version}}&#39;</span></span></span></code></pre>
-        </div>
+      <div class="package__instructions uRichText uSurface">
+        <h2 class="package__instructionsTitle">Installation</h2>
+        <p class="package__instructionsText">To install <code>{{.Name}}</code> and use it in your project, run:</p>
+        <pre tabindex="0" class="chroma"><code><span class="line"><span class="ln" id="install-line-1"><a style="outline: none; text-decoration:none; color:inherit" href="#install-line-1">1</a></span><span class="cl">go get <span class="s1">&#39;{{.ImportPath}}@v{{.Version}}&#39;</span></span></span></code></pre>
 
-        <div class="package__instructionsSection uRichText">
-          <h2 class="package__instructionsTitle">Usage</h2>
-          <p class="package__instructionsText">To use this package in your code:</p>
-          {{if .Usage}}
-          {{.Usage}}
-          {{else}}
-          <pre tabindex="0" class="chroma"><code><span class="line"><span class="ln" id="usage-line-1"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-1">1</a></span><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+        <h2 class="package__instructionsTitle">Usage</h2>
+        <p class="package__instructionsText">To use this package in your code:</p>
+        {{if .Usage}}
+        {{.Usage}}
+        {{else}}
+        <pre tabindex="0" class="chroma"><code><span class="line"><span class="ln" id="usage-line-1"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-1">1</a></span><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="ln" id="usage-line-2"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-2">2</a></span><span class="cl">
 </span></span><span class="line"><span class="ln" id="usage-line-3"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-3">3</a></span><span class="cl"><span class="kn">import</span> <span class="s">&#34;{{.ImportPath}}&#34;</span>
 </span></span><span class="line"><span class="ln" id="usage-line-4"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-4">4</a></span><span class="cl">
@@ -110,9 +107,8 @@ SPDX-License-Identifier: EUPL-1.2
 </span></span><span class="line"><span class="ln" id="usage-line-6"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-6">6</a></span><span class="cl">    <span class="c1">// Do something with the package.
 </span></span></span><span class="line"><span class="ln" id="usage-line-7"><a style="outline: none; text-decoration:none; color:inherit" href="#usage-line-7">7</a></span><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre>
-          {{end}}
-          <p class="package__instructionsText">For more examples and usage details, please <a href="{{.Documentation}}" rel="noopener noreferrer alternate help">check the Go reference documentation</a>.</p>
-        </div>
+        {{end}}
+        <p class="package__instructionsText">For more examples and usage details, please <a href="{{.Documentation}}" rel="noopener noreferrer alternate help">check the Go reference documentation</a>.</p>
       </div>
     </main>
 

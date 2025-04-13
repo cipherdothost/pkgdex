@@ -157,23 +157,36 @@ main {
 }
 
 .pageDescription {
-	padding-left: 16px;
-	border-radius: 8px;
-	border-left: 12px solid $fgPrimary;
-	margin-bottom: $layoutPadding;
-	padding-block: 6px;
 
-	&__title {
-
-		@extend %h1;
+	&__text:not(:last-child) {
+		margin-bottom: #{calc($layoutPadding / 2)};
 	}
 
-	&__text {
-		color: $fgPrimary;
-		font-size: 1.125rem;
+	&.mNoCard {
+		padding-left: 1rem;
+		border-radius: 0.5rem;
+		border-left: 0.75rem solid $fgPrimary;
+		margin-bottom: $layoutPadding;
+		padding-block: 0.25rem;
+	}
 
-		&:not(:last-child) {
-			margin-bottom: #{calc($layoutPadding / 2)};
+	&.mCard {
+
+		@extend %uSurface;
+		position: relative;
+		padding-left: 2.5rem;
+		margin-bottom: calc($layoutPadding / 2);
+		padding-block: 1rem;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1rem;
+			height: 100%;
+			border-radius: 1rem 0 0 1rem;
+			background: $fgPrimary;
+			content: "";
 		}
 	}
 }
