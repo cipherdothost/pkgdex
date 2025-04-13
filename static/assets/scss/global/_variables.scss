@@ -5,7 +5,7 @@
  */
 
 $layoutWidth: 750px;
-$layoutPadding: 32px;
+$layoutPadding: min(5%, 2rem);
 
 $fgPrimary: hsl(0deg 0% 14%);
 $fgSecondary: hsl(0deg 0% 30%);
