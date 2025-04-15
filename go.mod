@@ -16,7 +16,7 @@ require (
 	github.com/microcosm-cc/bluemonday v1.0.27
 	go.cipher.host/cmdkit v1.0.2
 	go.etcd.io/bbolt v1.4.0
-	golang.org/x/time v0.9.0
+	golang.org/x/time v0.11.0
 )
 
 require (
