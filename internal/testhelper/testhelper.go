@@ -8,7 +8,13 @@ package testhelper
 // IsHex returns true if the string contains only hexadecimal characters.
 func IsHex(str string) bool {
 	for _, rune := range str {
-		if !((rune >= '0' && rune <= '9') || (rune >= 'a' && rune <= 'f') || (rune >= 'A' && rune <= 'F')) {
+		var (
+			isDigit    = rune >= '0' && rune <= '9'
+			isLowerHex = rune >= 'a' && rune <= 'f'
+			isUpperHex = rune >= 'A' && rune <= 'F'
+		)
+
+		if !isDigit && !isLowerHex && !isUpperHex {
 			return false
 		}
 	}
