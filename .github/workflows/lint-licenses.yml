@@ -16,7 +16,7 @@ jobs:
     name: 'Check all files'
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e' # v2.10.4
+      - uses: 'step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf' # v2.11.1
         with:
           egress-policy: 'audit'
 
@@ -25,7 +25,7 @@ jobs:
           persist-credentials: false
 
       - name: 'Setup Python environment'
-        uses: 'actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38' # v5.4.0
+        uses: 'actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55' # v5.5.0
         with:
           python-version: '3.13'
 
