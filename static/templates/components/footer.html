@@ -6,12 +6,12 @@ SPDX-License-Identifier: EUPL-1.2
 
 {{define "footer"}}
 <footer role="contentinfo" id="footer" class="footer">
-  <a class="footer__link" href="mailto:{{.Service.Contact}}">Contact</a>
+  <a class="footer__link a" href="mailto:{{.Service.Contact}}">Contact</a>
   {{if .Service.PrivacyPolicy}}
-  <a class="footer__link" href="{{.Service.PrivacyPolicy}}" rel="privacy-policy">Privacy policy</a>
+  <a class="footer__link a" href="{{.Service.PrivacyPolicy}}" rel="privacy-policy">Privacy policy</a>
   {{else}}
-  <a class="footer__link" href="/privacy" rel="privacy-policy">Privacy policy</a>
+  <a class="footer__link a" href="/privacy" rel="privacy-policy">Privacy policy</a>
   {{end}}
-  <a class="footer__link" href="https://github.com/cipherdothost/pkgdex">Source code</a>
+  <a class="footer__link a" href="https://github.com/cipherdothost/pkgdex">Source code</a>
 </footer>
 {{end}}

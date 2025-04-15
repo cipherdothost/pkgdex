@@ -8,7 +8,6 @@
 *::before,
 *::after {
 	box-sizing: border-box;
-	padding: 0;
 	border: none;
 	border-radius: 0;
 	margin: 0;
@@ -16,7 +15,6 @@
 	font-family: inherit;
 	font-size: inherit;
 	line-height: inherit;
-	list-style: none;
 	text-align: inherit;
 	text-transform: inherit;
 }
@@ -52,6 +50,16 @@ a:where([class]:focus),
 a:where([class]:visited) {
 	color: inherit;
 	text-decoration: none;
+}
+
+/* Reset styles on lists with classes. */
+ul:where([class]),
+ol:where([class]) {
+	padding: 0;
+}
+
+li:where([class]) {
+	list-style: none;
 }
 
 /* Add the correct font size in all browsers. */

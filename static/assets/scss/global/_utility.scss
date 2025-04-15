@@ -34,3 +34,11 @@
 .uDisabled {
 	pointer-events: none;
 }
+
+%uSurface,
+.uSurface {
+	padding: 1.5rem;
+	border: 1px solid $borderPrimary;
+	border-radius: 1rem;
+	background: $bgPrimary;
+}

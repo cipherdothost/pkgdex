@@ -50,38 +50,36 @@ SPDX-License-Identifier: EUPL-1.2
     {{template "header" .}}
 
     <main role="main" id="main" class="privacy__main">
-      <header class="pageDescription privacy__description">
+      <header class="pageDescription mCard privacy__description">
         <h1 class="pageDescription__title">Privacy policy</h1>
         <p class="pageDescription__text"><strong>Last modified:</strong> <time datetime="2025-02-02">February 2, 2025</time></p>
       </header>
 
-      <div class="privacy__instructions">
-        <div class="privacy__instructionsSection uRichText">
-          <p class="privacy__instructionsText">This privacy policy explains how we handle your data when you use our service. We believe in minimal data collection and maximum privacy, so we never sell your data and we collect only what is absolutely necessary to provide you with the service.</p>
-          <h2 class="privacy__instructionsTitle">What we collect</h2>
-          <p class="privacy__instructionsText">We collect very little data. The only information we collect is partially anonymized IP addresses for security purposes.</p>
-          <p class="privacy__instructionsText">These IP addresses have their last two segments removed, which makes it almost impossible to identify individual users while still allowing us to protect our service from abuse.</p>
-          <p class="privacy__instructionsText">We do not:</p>
-          <ul>
-            <li>Use cookies.</li>
-            <li>Track your behavior.</li>
-            <li>Use any analytics service.</li>
-            <li>Load resources from external sources.</li>
-            <li>Store any personal information.</li>
-          </ul>
-          <h2 class="privacy__instructionsTitle">How we use the data</h2>
-          <p class="privacy__instructionsText">The truncated IP addresses we collect are used solely for security purposes, such as preventing denial of service attacks and abuse.</p>
-          <p class="privacy__instructionsText">This data is automatically deleted from our servers within 72 hours.</p>
-          <h2 class="privacy__instructionsTitle">Your rights</h2>
-          <p class="privacy__instructionsText">Under the GDPR and other privacy laws, you have certain rights regarding your personal data. However, since we collect virtually no personal information, most of these rights (such as the right to access, correct, or delete your data) don't apply in practice.</p>
-          <h2 class="privacy__instructionsTitle">Changes to this policy</h2>
-          <p class="privacy__instructionsText">If we make any changes to this privacy policy, we'll update the modification date at the top of this document.</p>
-          <p class="privacy__instructionsText">Since we're committed to minimal data collection, any changes would likely be minor and related to security improvements.</p>
-          <h2 class="privacy__instructionsTitle">Questions or concerns</h2>
-          <p class="privacy__instructionsText">If you have any questions about
-          this privacy policy or how we handle data, please contact us at <a href="mailto:{{.Service.Contact}}">{{.Service.Contact}}</a>.</p>
-          <p class="privacy__instructionsText">We take privacy seriously and will try to respond to your inquiry as quickly as possible.</p>
-        </div>
+      <div class="uRichText uSurface privacy__text">
+        <p>This privacy policy explains how we handle your data when you use our service. We believe in minimal data collection and maximum privacy, so we never sell your data and we collect only what is absolutely necessary to provide you with the service.</p>
+        <h2>What we collect</h2>
+        <p>We collect very little data. The only information we collect is partially anonymized IP addresses for security purposes.</p>
+        <p>These IP addresses have their last two segments removed, which makes it almost impossible to identify individual users while still allowing us to protect our service from abuse.</p>
+        <p>We do not:</p>
+        <ul>
+          <li>Use cookies.</li>
+          <li>Track your behavior.</li>
+          <li>Use any analytics service.</li>
+          <li>Load resources from external sources.</li>
+          <li>Store any personal information.</li>
+        </ul>
+        <h2>How we use the data</h2>
+        <p>The truncated IP addresses we collect are used solely for security purposes, such as preventing denial of service attacks and abuse.</p>
+        <p>This data is automatically deleted from our servers within 72 hours.</p>
+        <h2>Your rights</h2>
+        <p>Under the GDPR and other privacy laws, you have certain rights regarding your personal data. However, since we collect virtually no personal information, most of these rights (such as the right to access, correct, or delete your data) don't apply in practice.</p>
+        <h2>Changes to this policy</h2>
+        <p>If we make any changes to this privacy policy, we'll update the modification date at the top of this document.</p>
+        <p>Since we're committed to minimal data collection, any changes would likely be minor and related to security improvements.</p>
+        <h2>Questions or concerns</h2>
+        <p>If you have any questions about
+        this privacy policy or how we handle data, please contact us at <a href="mailto:{{.Service.Contact}}">{{.Service.Contact}}</a>.</p>
+        <p>We take privacy seriously and will try to respond to your inquiry as quickly as possible.</p>
       </div>
     </main>
 
