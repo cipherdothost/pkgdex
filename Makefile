@@ -104,7 +104,7 @@ fmt: # Formats Go source files in this repository.
 	$(GO) run mvdan.cc/gofumpt@latest -e -extra -w .
 
 lint: # Runs golangci-lint using the config at the root of the repository.
-	$(GO) run github.com/golangci/golangci-lint/cmd/golangci-lint@latest run ./...
+	$(GO) run github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest run ./...
 
 lint/styles: # Runs stylelint on the CSS and SASS assets.
 	$(STYLELINT) --quiet-deprecation-warnings \
