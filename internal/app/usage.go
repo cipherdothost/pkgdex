@@ -11,10 +11,10 @@ import (
 	"strings"
 
 	"git.sr.ht/~jamesponddotco/xstd-go/xunsafe"
-	"github.com/alecthomas/chroma"
-	"github.com/alecthomas/chroma/formatters/html"
-	"github.com/alecthomas/chroma/lexers"
-	"github.com/alecthomas/chroma/styles"
+	"github.com/alecthomas/chroma/v2"
+	"github.com/alecthomas/chroma/v2/formatters/html"
+	"github.com/alecthomas/chroma/v2/lexers"
+	"github.com/alecthomas/chroma/v2/styles"
 	jsoniter "github.com/json-iterator/go"
 	"go.cipher.host/cmdkit"
 	"go.cipher.host/pkgdex/internal/errors"
@@ -77,11 +77,11 @@ func GenerateUsageAction(args []string) error {
 
 	lexer = chroma.Coalesce(lexer)
 
-	style := styles.GitHub
+	style := styles.Get("github")
 
 	formatter := html.New(
 		html.WithLineNumbers(true),
-		html.LinkableLineNumbers(true, "usage-line-"),
+		html.WithLinkableLineNumbers(true, "usage-line-"),
 		html.TabWidth(4),
 		html.WithClasses(true),
 		html.Standalone(false),
