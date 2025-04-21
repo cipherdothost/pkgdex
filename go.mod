@@ -10,7 +10,7 @@ require (
 	git.sr.ht/~jamesponddotco/acopw-go v1.0.2
 	git.sr.ht/~jamesponddotco/credential-go v1.0.0
 	git.sr.ht/~jamesponddotco/xstd-go v0.13.1
-	github.com/alecthomas/chroma v0.10.0
+	github.com/alecthomas/chroma/v2 v2.16.0
 	github.com/blevesearch/bleve/v2 v2.5.0
 	github.com/json-iterator/go v1.1.12
 	github.com/microcosm-cc/bluemonday v1.0.27
@@ -40,7 +40,7 @@ require (
 	github.com/blevesearch/zapx/v14 v14.4.1 // indirect
 	github.com/blevesearch/zapx/v15 v15.4.1 // indirect
 	github.com/blevesearch/zapx/v16 v16.2.2 // indirect
-	github.com/dlclark/regexp2 v1.4.0 // indirect
+	github.com/dlclark/regexp2 v1.11.5 // indirect
 	github.com/golang/geo v0.0.0-20210211234256-740aa86cb551 // indirect
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
