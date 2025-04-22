@@ -10,7 +10,7 @@ require (
 	git.sr.ht/~jamesponddotco/acopw-go v1.0.2
 	git.sr.ht/~jamesponddotco/credential-go v1.0.0
 	git.sr.ht/~jamesponddotco/xstd-go v0.13.1
-	github.com/alecthomas/chroma/v2 v2.16.0
+	github.com/alecthomas/chroma/v2 v2.17.0
 	github.com/blevesearch/bleve/v2 v2.5.0
 	github.com/json-iterator/go v1.1.12
 	github.com/microcosm-cc/bluemonday v1.0.27
