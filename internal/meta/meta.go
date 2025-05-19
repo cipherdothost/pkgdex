@@ -28,5 +28,5 @@ const (
 	Contact string = "hello@cipher.host"
 
 	// Version is the version of the service.
-	Version string = "1.0.0"
+	Version string = "1.0.1"
 )
