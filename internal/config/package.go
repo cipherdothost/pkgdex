@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	validPackageNameRegex    = `^[a-zA-Z0-9][a-zA-Z0-9-_/.]*[a-zA-Z0-9]$`
+	validPackageNameRegex    = `^[\pL0-9_.-]+$`
 	validPackageVersionRegex = `^\d+\.\d+\.\d+$`
 )
 
