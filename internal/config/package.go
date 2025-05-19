@@ -5,6 +5,7 @@
 package config
 
 import (
+	"fmt"
 	"net/url"
 	"regexp"
 
@@ -88,7 +89,7 @@ func (p *Package) validate() error {
 	nameRegex := regexp.MustCompile(validPackageNameRegex)
 
 	if !nameRegex.MatchString(p.Name) {
-		return ErrPackageInvalidName
+		return fmt.Errorf("%w: %s", ErrPackageInvalidName, p.Name)
 	}
 
 	if p.Description == "" {
