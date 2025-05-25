@@ -5,6 +5,7 @@
 package config
 
 import (
+	"fmt"
 	"net/url"
 	"regexp"
 
@@ -12,7 +13,7 @@ import (
 )
 
 const (
-	validPackageNameRegex    = `^[a-zA-Z0-9][a-zA-Z0-9-_/.]*[a-zA-Z0-9]$`
+	validPackageNameRegex    = `^[\pL0-9_.-]+$`
 	validPackageVersionRegex = `^\d+\.\d+\.\d+$`
 )
 
@@ -88,7 +89,7 @@ func (p *Package) validate() error {
 	nameRegex := regexp.MustCompile(validPackageNameRegex)
 
 	if !nameRegex.MatchString(p.Name) {
-		return ErrPackageInvalidName
+		return fmt.Errorf("%w: %s", ErrPackageInvalidName, p.Name)
 	}
 
 	if p.Description == "" {
