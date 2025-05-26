@@ -43,7 +43,7 @@ install:
 ```bash
 git clone 'https://github.com/cipherdothost/pkgdex.git'
 cd 'pkgdex'
-git checkout 'v1.0.1'
+git checkout 'v1.0.2'
 npm install
 make
 sudo make install

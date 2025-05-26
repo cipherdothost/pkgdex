@@ -52,7 +52,7 @@ git clone 'https://github.com/cipherdothost/pkgdex.git'
 cd 'pkgdex'
 
 # Switch to latest stable version.
-git checkout 'v1.0.1'
+git checkout 'v1.0.2'
 
 # Build the service.
 make
