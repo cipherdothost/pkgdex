@@ -65,7 +65,11 @@ func (h *HealthHandler) ServeHTTP(w http.ResponseWriter, _ *http.Request) {
 			Status: http.StatusInternalServerError,
 		}
 
-		response.WriteJSON(w)
+		if err = response.WriteJSON(w); err != nil {
+			h.logger.Error("failed to write error response",
+				slog.Any("error", err),
+			)
+		}
 
 		return
 	}

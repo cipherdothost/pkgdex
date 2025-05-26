@@ -49,7 +49,8 @@ func (a *Archive) SavePackages(ctx context.Context, cfg *config.Config) error {
 			return err
 		}
 
-		if err := a.Save(ctx, uri); err != nil {
+		err = a.Save(ctx, uri)
+		if err != nil {
 			return err
 		}
 	}

@@ -28,7 +28,11 @@ func Authorization(apiKey string, logger *slog.Logger, next http.Handler) http.H
 				Detail: "Access denied. Please provide a valid API key in the Authorization header.",
 			}
 
-			response.WriteJSON(w)
+			if err := response.WriteJSON(w); err != nil {
+				logger.Error("failed to write response",
+					slog.Any("error", err),
+				)
+			}
 
 			return
 		}

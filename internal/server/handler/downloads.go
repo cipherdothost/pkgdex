@@ -73,7 +73,11 @@ func (d *DownloadsHandler) ServeHTTP(w http.ResponseWriter, _ *http.Request) {
 			Status: http.StatusInternalServerError,
 		}
 
-		response.WriteJSON(w)
+		if err = response.WriteJSON(w); err != nil {
+			d.logger.Error("failed to write error response",
+				slog.Any("error", err),
+			)
+		}
 
 		return
 	}
