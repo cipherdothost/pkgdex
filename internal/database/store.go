@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"time"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xunsafe"
 	"go.cipher.host/cmdkit"
+	"go.cipher.host/x/xunsafe"
 	bolt "go.etcd.io/bbolt"
 )
 

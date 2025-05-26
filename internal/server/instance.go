@@ -15,8 +15,6 @@ import (
 	"net/http/pprof"
 	"time"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xcrypto/xtls"
-	"git.sr.ht/~jamesponddotco/xstd-go/xnet/xhttp/xmiddleware"
 	"go.cipher.host/cmdkit"
 	"go.cipher.host/pkgdex/internal/config"
 	"go.cipher.host/pkgdex/internal/database"
@@ -30,6 +28,8 @@ import (
 	"go.cipher.host/pkgdex/internal/version"
 	"go.cipher.host/pkgdex/internal/wayback"
 	"go.cipher.host/pkgdex/static"
+	"go.cipher.host/x/xcrypto/xtls"
+	"go.cipher.host/x/xnet/xhttp/xmiddleware"
 )
 
 const (
@@ -95,23 +95,12 @@ func NewInstance(ctx context.Context, cfg *config.Config, db *database.Store, lo
 		return nil, fmt.Errorf("%w: %w", ErrTLSCertificates, err)
 	}
 
-	tlsConfig := xtls.ModernServerConfig()
+	tlsConfig := xtls.ModernConfig()
 	tlsConfig.Certificates = []tls.Certificate{cert}
 
 	middlewares := []func(http.Handler) http.Handler{
 		func(h http.Handler) http.Handler { return xmiddleware.PanicRecovery(logger, h) },
-		func(h http.Handler) http.Handler { return xmiddleware.UserAgent(logger, h) },
-		func(h http.Handler) http.Handler {
-			return xmiddleware.AcceptRequests(
-				[]string{
-					http.MethodGet,
-					http.MethodHead,
-					http.MethodOptions,
-				},
-				logger,
-				h,
-			)
-		},
+		xmiddleware.UserAgent,
 		middleware.CSP,
 	}
 

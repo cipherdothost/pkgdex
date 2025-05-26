@@ -14,10 +14,9 @@ import (
 	"strings"
 	"time"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xnet/xhttp"
-	"git.sr.ht/~jamesponddotco/xstd-go/xstrings"
 	jsoniter "github.com/json-iterator/go"
 	"go.cipher.host/cmdkit"
+	"go.cipher.host/x/xnet/xhttp"
 	"golang.org/x/time/rate"
 )
 
@@ -51,7 +50,7 @@ type (
 // New returns a new instance of Client.
 func NewClient(httpClient Doer) *Client {
 	if httpClient == nil {
-		httpClient = xhttp.NewClient(15 * time.Second)
+		httpClient = xhttp.NewModernClient(15 * time.Second)
 	}
 
 	return &Client{
@@ -62,9 +61,12 @@ func NewClient(httpClient Doer) *Client {
 
 // Archive attempts to save the given URI to the Wayback Machine.
 func (c *Client) Archive(ctx context.Context, uri string) error {
-	reqURI := xstrings.JoinWithSeparator("/", archiveBaseURL, "save", uri)
+	reqURI, err := url.JoinPath(archiveBaseURL, "save", uri)
+	if err != nil {
+		return fmt.Errorf("%w", err)
+	}
 
-	if _, err := url.ParseRequestURI(reqURI); err != nil {
+	if _, err = url.ParseRequestURI(reqURI); err != nil {
 		return fmt.Errorf("%w", err)
 	}
 

@@ -44,7 +44,10 @@ func (a *Archive) Save(ctx context.Context, uri string) error {
 // already archived.
 func (a *Archive) SavePackages(ctx context.Context, cfg *config.Config) error {
 	for _, pkg := range cfg.Packages {
-		uri := PackageURI("https://"+cfg.Service.BaseURL, pkg.Name)
+		uri, err := PackageURI("https://"+cfg.Service.BaseURL, pkg.Name)
+		if err != nil {
+			return err
+		}
 
 		if err := a.Save(ctx, uri); err != nil {
 			return err

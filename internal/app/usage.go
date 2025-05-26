@@ -10,7 +10,6 @@ import (
 	"os"
 	"strings"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xunsafe"
 	"github.com/alecthomas/chroma/v2"
 	"github.com/alecthomas/chroma/v2/formatters/html"
 	"github.com/alecthomas/chroma/v2/lexers"
@@ -18,6 +17,7 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"go.cipher.host/cmdkit"
 	"go.cipher.host/pkgdex/internal/errors"
+	"go.cipher.host/x/xunsafe"
 )
 
 const (

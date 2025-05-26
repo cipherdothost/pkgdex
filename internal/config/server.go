@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"git.sr.ht/~jamesponddotco/credential-go"
-	"git.sr.ht/~jamesponddotco/xstd-go/xtime"
 	"go.cipher.host/cmdkit"
 	"go.cipher.host/pkgdex/internal/meta"
+	"go.cipher.host/x/xtime"
 )
 
 const (

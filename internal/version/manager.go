@@ -9,11 +9,11 @@ import (
 	"fmt"
 	"time"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xunsafe"
 	jsoniter "github.com/json-iterator/go"
 	"go.cipher.host/cmdkit"
 	"go.cipher.host/pkgdex/internal/config"
 	"go.cipher.host/pkgdex/internal/database"
+	"go.cipher.host/x/xunsafe"
 	bolt "go.etcd.io/bbolt"
 )
 
