@@ -9,17 +9,18 @@ go 1.24
 require (
 	git.sr.ht/~jamesponddotco/acopw-go v1.0.2
 	git.sr.ht/~jamesponddotco/credential-go v1.0.0
-	git.sr.ht/~jamesponddotco/xstd-go v0.13.1
 	github.com/alecthomas/chroma/v2 v2.17.0
 	github.com/blevesearch/bleve/v2 v2.5.0
 	github.com/json-iterator/go v1.1.12
 	github.com/microcosm-cc/bluemonday v1.0.27
 	go.cipher.host/cmdkit v1.0.2
+	go.cipher.host/x v1.0.0
 	go.etcd.io/bbolt v1.4.0
 	golang.org/x/time v0.11.0
 )
 
 require (
+	git.sr.ht/~jamesponddotco/xstd-go v0.13.1 // indirect
 	github.com/RoaringBitmap/roaring/v2 v2.4.5 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bits-and-blooms/bitset v1.22.0 // indirect
@@ -49,5 +50,5 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/mschoch/smat v0.2.0 // indirect
 	golang.org/x/net v0.39.0 // indirect
-	golang.org/x/sys v0.32.0 // indirect
+	golang.org/x/sys v0.33.0 // indirect
 )

@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xtime"
-	"git.sr.ht/~jamesponddotco/xstd-go/xunsafe"
 	"go.cipher.host/pkgdex/internal/testhelper"
+	"go.cipher.host/x/xtime"
+	"go.cipher.host/x/xunsafe"
 )
 
 func TestConfig_Validate(t *testing.T) {

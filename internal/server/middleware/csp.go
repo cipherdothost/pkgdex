@@ -6,8 +6,7 @@ package middleware
 
 import (
 	"net/http"
-
-	"git.sr.ht/~jamesponddotco/xstd-go/xstrings"
+	"strings"
 )
 
 // CSP ensures that the Content-Security-Policy header is set.
@@ -37,7 +36,7 @@ func CSP(next http.Handler) http.Handler {
 				"block-all-mixed-content",
 				"upgrade-insecure-requests",
 			}
-			csp = xstrings.JoinWithSeparator("; ", directives...)
+			csp = strings.Join(directives, "; ")
 		)
 
 		w.Header().Set("Content-Security-Policy", csp)

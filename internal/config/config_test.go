@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xtime"
 	"go.cipher.host/pkgdex/internal/config"
 	"go.cipher.host/pkgdex/internal/testhelper"
+	"go.cipher.host/x/xtime"
 )
 
 func TestLoad(t *testing.T) {

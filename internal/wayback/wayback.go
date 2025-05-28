@@ -4,9 +4,17 @@
 
 package wayback
 
-import "git.sr.ht/~jamesponddotco/xstd-go/xstrings"
+import (
+	"fmt"
+	"net/url"
+)
 
 // PackageURI returns the URI of the given package.
-func PackageURI(baseURL, pkg string) string {
-	return xstrings.JoinWithSeparator("/", baseURL, pkg)
+func PackageURI(baseURL, pkg string) (string, error) {
+	uri, err := url.JoinPath(baseURL, pkg)
+	if err != nil {
+		return "", fmt.Errorf("%w", err)
+	}
+
+	return uri, nil
 }

@@ -9,11 +9,11 @@ import (
 	"log/slog"
 	"net/http"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xnet/xhttp"
 	jsoniter "github.com/json-iterator/go"
 	"go.cipher.host/pkgdex/internal/config"
 	"go.cipher.host/pkgdex/internal/metric"
 	"go.cipher.host/pkgdex/internal/server/model"
+	"go.cipher.host/x/xnet/xhttp"
 )
 
 // DownloadsHandler is the HTTP handler for the /meta/downloads endpoint.
@@ -33,7 +33,7 @@ func NewDownloadsHandler(logger *slog.Logger, metrics *metric.Store, packages []
 }
 
 // ServeHTTP handles HTTP requests for the /meta/downloads endpoint.
-func (d *DownloadsHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (d *DownloadsHandler) ServeHTTP(w http.ResponseWriter, _ *http.Request) {
 	report := &model.Report{
 		Packages: make([]model.Package, 0, len(d.packages)),
 	}
@@ -68,12 +68,16 @@ func (d *DownloadsHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			slog.Any("error", err),
 		)
 
-		response := xhttp.ResponseError{
-			Message: "Internal server error. Failed to encode download report response.",
-			Code:    http.StatusInternalServerError,
+		response := xhttp.DetailError{
+			Detail: "Failed to encode download report response.",
+			Status: http.StatusInternalServerError,
 		}
 
-		response.Write(r.Context(), d.logger, w)
+		if err = response.WriteJSON(w); err != nil {
+			d.logger.Error("failed to write error response",
+				slog.Any("error", err),
+			)
+		}
 
 		return
 	}

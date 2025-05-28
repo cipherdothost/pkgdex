@@ -1,7 +1,6 @@
 Origin,License,"License URL",Copyright
 git.sr.ht/~jamesponddotco/acopw-go,MIT,https://git.sr.ht/~jamesponddotco/acopw-go/tree/v1.0.2/LICENSE.md,2024 James Pond
 git.sr.ht/~jamesponddotco/credential-go,MIT,https://git.sr.ht/~jamesponddotco/credential-go/tree/v1.0.0/LICENSE.md,2024 James Pond
-git.sr.ht/~jamesponddotco/xstd-go,MIT,https://git.sr.ht/~jamesponddotco/xstd-go/tree/v0.13.1/LICENSE.md,2023 James Pond
 github.com/RoaringBitmap/roaring/v2,Apache-2.0,https://github.com/RoaringBitmap/roaring/blob/v2.4.5/LICENSE,2014 Daniel Lemire
 github.com/alecthomas/chroma/v2,MIT,https://github.com/alecthomas/chroma/blob/v2.17.0/COPYING,2017 Alec Thomas
 github.com/aymerick/douceur,MIT,https://github.com/aymerick/douceur/blob/v0.2.0/LICENSE,2015 Aymerick JEHANNE

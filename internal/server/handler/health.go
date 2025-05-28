@@ -10,10 +10,10 @@ import (
 	"net/http"
 	"time"
 
-	"git.sr.ht/~jamesponddotco/xstd-go/xnet/xhttp"
 	jsoniter "github.com/json-iterator/go"
 	"go.cipher.host/pkgdex/internal/meta"
 	"go.cipher.host/pkgdex/internal/server/model"
+	"go.cipher.host/x/xnet/xhttp"
 )
 
 const (
@@ -34,7 +34,7 @@ func NewHealthHandler(logger *slog.Logger) *HealthHandler {
 }
 
 // ServeHTTP handles HTTP requests for the /health endpoint.
-func (h *HealthHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (h *HealthHandler) ServeHTTP(w http.ResponseWriter, _ *http.Request) {
 	health := model.Health{
 		FinishedAt: time.Now().Unix(),
 		CheckResults: []model.Result{
@@ -60,12 +60,16 @@ func (h *HealthHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			slog.Any("error", err),
 		)
 
-		response := xhttp.ResponseError{
-			Message: "Internal server error. Failed to encode health response.",
-			Code:    http.StatusInternalServerError,
+		response := xhttp.DetailError{
+			Detail: "Failed to encode health response.",
+			Status: http.StatusInternalServerError,
 		}
 
-		response.Write(r.Context(), h.logger, w)
+		if err = response.WriteJSON(w); err != nil {
+			h.logger.Error("failed to write error response",
+				slog.Any("error", err),
+			)
+		}
 
 		return
 	}

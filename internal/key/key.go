@@ -11,8 +11,8 @@ import (
 	"strings"
 
 	"git.sr.ht/~jamesponddotco/acopw-go"
-	"git.sr.ht/~jamesponddotco/xstd-go/xunsafe"
 	"go.cipher.host/pkgdex/internal/meta"
+	"go.cipher.host/x/xunsafe"
 )
 
 const (
